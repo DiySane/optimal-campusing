@@ -1,11 +1,6 @@
 class Student:
     count = 0
 
-    # def __init__(self, name):
-    #     Student.count += 1
-    #     self.id = Student.count
-    #     self.name = name
-
     def __init__(self):
         Student.count += 1
         self.id = Student.count

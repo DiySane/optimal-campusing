@@ -8,7 +8,6 @@ class Combo:
 
     def __eq__(self, other):
         return str(self) == str(other)
-        # return str(self.student) == str(other.student) and str(self.company) == str(other.company)
 
     def __hash__(self):
         return hash(str(self))

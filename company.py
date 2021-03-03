@@ -1,9 +1,5 @@
 class Company:
     count = 0
-    # def __init__(self, name):
-    #     Company.count += 1
-    #     self.id = Company.count
-    #     self.name = name
 
     def __init__(self):
         Company.count += 1
