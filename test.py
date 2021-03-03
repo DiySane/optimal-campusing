@@ -80,15 +80,24 @@ class Test:
     def fill_slots(self):
         for combo in self.sorted_combos.keys():
             for slot in self.time_slots:
+                '''Check if either student or company is visited
+                for the given slot.
+                '''
                 if (combo.student.name not in self.time_slot_students_dict.get(slot) and combo.company.name not in self.time_slot_company_student_dict.get(slot).keys()):
+                    '''Mark the student entry visited for the specific time-slot, 
+                    as one student can't attend two sessions simultaneously'''
                     self.time_slot_students_dict[slot].add(combo.student.name)
+                    '''Add the student entry for a slot-company combination, 
+                    append the priority as well for better legibility.
+                    This will mark the company visited for the slot too.'''
                     self.time_slot_company_student_dict[slot][combo.company.name] = combo.student.name + ', ' + str(
                         self.sorted_combos[combo])
                     break
 
 
 def main():
-    test = Test(20, 40, 15)
+    # test = Test(20, 40, 15)
+    test = Test(5, 10, 8)
     json_object = json.dumps(test.time_slot_company_student_dict, indent=4)
     print(json_object)
 
